@@ -33,6 +33,11 @@
       width:15vw;
       height:10vh;
       margin-top:30px;
+      display:flex;
+      text-align: center;
+      font-size: 2vw;
+      justify-content: center;
+      align-items: center;
     }
     #root>div:nth-child(4){
       background-color: #F9F9F9;
@@ -60,9 +65,9 @@
 <body>
   <div id="root">
     <div id="board"></div>
-    <div>하이스코어</div>
-    <div>시간제한<p id="log"></p></div>
-    <div>스코어<span id=value>0</span></div>
+    <div>하이스코어:</div>
+    <div>시간:<span id="log"></p></div>
+    <div>스코어:<span id=value>0</span></div>
     <button id="play">play!</button>
   </div>
   <script>
@@ -72,57 +77,7 @@
     const play= document.getElementById('play');
     let value = document.getElementById("value")
     let log =document.getElementById("log")
-    // const newDiv = document.createElement('div')
-    // newDiv.style.width = "20px"
-    //   newDiv.style.height = "20px"
-    //   newDiv.style.backgroundColor = "black"
     console.dir(root)
-    // let x = Math.floor(Math.random() *  200)
-    //   let y = Math.floor(Math.random() * 200)
-  
-
-
-
-
-
-    //시간초 구하기//
-   
-  
-    // 스크립트 시작 지점의 기록
-  
-
-  // setInterval(() => {
-  //   const currentTime = Date.now();
-  //   // 경과한 밀리초 가져오기
-  //   const diff = currentTime - oldTime;
-    
-  //   // 초(second) 단위 변환하기
-  //   const sec = Math.floor(diff / 1000);
-    
-  //   // HTML에 문자열 넣기
-  //   document.querySelector('#log').innerHTML = `${sec}초 경과`;
-  // }, 1000);
-
-
-
-
-
-
-    // const elapsedTimeText = document.getElementsByClassName("elapsed-time-text")[0];
-    // let endTime = new Date();
-    // let timeDiff = endTime.getTime() - startTime.getTime();
-    // timeDiff = timeDiff / 1000;
-    // let seconds = Math.floor(timeDiff % 60);
-    // if (totalHoursAsString === "00") {
-	  // return minutesAsString + ":" + secondsAsString;
-    // } else {
-	  // return totalHoursAsString + ":" + minutesAsString + ":" + secondsAsString;
-    // }
-    // // 화면에 표시될 값의 초기 값 설정
-    // let displayedElapsedTime = "00:00";
-    // let elapsedTimeIntervalRef = setInterval(() => {
-	  // displayedElapsedTime = timeAndDateHandling.getElapsedTime(startDate);
-    // }, 1000);
     
 
     //주요 클릭 이벤트//
@@ -143,6 +98,27 @@
       newDiv.style.top = ySting+"px"
       board.appendChild(newDiv)
 
+      // const currentTime = Date.now();
+      //   // 경과한 밀리초 가져오기
+      //   const diff = currentTime - oldTime;
+    
+      //   // 초(second) 단위 변환하기
+    
+      //   const sec = Math.floor(diff / 1000);
+    
+      //   // HTML에 문자열 넣기
+      //   log.innerHTML = `${sec}`;
+      
+     
+
+      newDiv.addEventListener("click",function(eventTarget){
+      newDiv.remove()
+      count = parseInt(count) + 1
+      value.textContent = count
+      
+    })
+    },500)
+    let time = setInterval(function(){
       const currentTime = Date.now();
         // 경과한 밀리초 가져오기
         const diff = currentTime - oldTime;
@@ -152,63 +128,26 @@
         const sec = Math.floor(diff / 1000);
     
         // HTML에 문자열 넣기
-        log.innerHTML = `${sec}초 경과`;
+        log.innerHTML = `${sec}`;
+      
+      
       
       if(sec>10){
         clearInterval(interval)
+        clearInterval(time)
         alert("끝!!!!")
         re()
       }
-      function re(){
+
+    },1000)
+    function re(){
             
             location.reload()
             event.stopPropagation()
             }
 
 
-
-
-      newDiv.addEventListener("click",function(eventTarget){
-      newDiv.remove()
-      count = parseInt(count) + 1
-      value.textContent = count
-      
-        
- 
-
-
-
-
-
-
-
-
-
     })
-    },1000)
-
-    })
-    
-
-    // let xString = x.toString()
-    //   let ySting = y.toString()
-    //   // newDiv.style.left = xString+"px"
-    //   // newDiv.style.top = ySting+"px"
-   
-
-  
-
-    // function mousemove(event){
-    // console.log(
-    //   "pageX: ",event.pageX, 
-    //   "pageY: ", event.pageY, 
-    // "clientX: ", event.clientX, 
-    // "clientY:", event.clientY)
-    // }
-
-    // window.addEventListener('mousemove', mousemove);
-    
-
     
 
   </script>
