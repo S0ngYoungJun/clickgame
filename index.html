@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin:0; padding:0; box-sizing: border-box;
+      }
+    #root {
+      width: 100vw;
+      background-color: bisque;
+      height: 100vh
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+  </div>
+  <script>
+    
+    const root = document.getElementById('root');
+    
+    // const newDiv = document.createElement('div')
+    // newDiv.style.width = "20px"
+    //   newDiv.style.height = "20px"
+    //   newDiv.style.backgroundColor = "black"
+    console.dir(root)
+    // let x = Math.floor(Math.random() *  200)
+    //   let y = Math.floor(Math.random() * 200)
+    
+    let interval = setInterval(function(){
+      const newDiv = document.createElement('button')
+      newDiv.setAttribute("id", "btn")
+      newDiv.style.width = "20px"
+      newDiv.style.height = "20px"
+      newDiv.style.backgroundColor = "black"
+      newDiv.style.position="absolute"
+      let x = Math.floor(Math.random() * 500)
+      let y = Math.floor(Math.random() * 500)
+      let xString = x.toString()
+      let ySting = y.toString()
+      newDiv.style.left = xString+"px"
+      newDiv.style.top = ySting+"px"
+      root.appendChild(newDiv)
+      newDiv.addEventListener("click",function(eventTarget){
+      
+      console.log(eventTarget)
+      newDiv.remove()
+    })
+    },1000)
+
+    // let xString = x.toString()
+    //   let ySting = y.toString()
+    //   // newDiv.style.left = xString+"px"
+    //   // newDiv.style.top = ySting+"px"
+   
+
+  
+
+    // function mousemove(event){
+    // console.log(
+    //   "pageX: ",event.pageX, 
+    //   "pageY: ", event.pageY, 
+    // "clientX: ", event.clientX, 
+    // "clientY:", event.clientY)
+    // }
+
+    // window.addEventListener('mousemove', mousemove);
+    
+
+    
+
+  </script>
+</body>
+</html>
