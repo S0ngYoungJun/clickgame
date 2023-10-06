@@ -89,7 +89,7 @@
    
   
     // 스크립트 시작 지점의 기록
-  const oldTime = Date.now();
+  
 
   // setInterval(() => {
   //   const currentTime = Date.now();
@@ -127,6 +127,7 @@
 
     //주요 클릭 이벤트//
     play.addEventListener("click",function(){
+      const oldTime = Date.now();
       let interval = setInterval(function(){
       const newDiv = document.createElement('button')
       newDiv.setAttribute("id", "btn")
@@ -152,6 +153,17 @@
     
         // HTML에 문자열 넣기
         log.innerHTML = `${sec}초 경과`;
+      
+      if(sec>10){
+        clearInterval(interval)
+        alert("끝!!!!")
+        re()
+      }
+      function re(){
+            
+            location.reload()
+            event.stopPropagation()
+            }
 
 
 
