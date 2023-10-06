@@ -21,6 +21,7 @@
       background-color: bisque;
       width:60vw;
       height:95vh;
+      position: relative;
     }
     #root>div:nth-child(2){
       background-color:#F9F9F9;
@@ -57,12 +58,13 @@
     <div></div>
     <div></div>
     <div></div>
-    <button>play!</button>
+    <button id="play">play!</button>
   </div>
   <script>
     
     const root = document.getElementById('root');
     const board = document.getElementById('board');
+    const play= document.getElementById('play');
     // const newDiv = document.createElement('div')
     // newDiv.style.width = "20px"
     //   newDiv.style.height = "20px"
@@ -70,27 +72,28 @@
     console.dir(root)
     // let x = Math.floor(Math.random() *  200)
     //   let y = Math.floor(Math.random() * 200)
-    
-    let interval = setInterval(function(){
+    play.addEventListener("click",function(){
+      let interval = setInterval(function(){
       const newDiv = document.createElement('button')
       newDiv.setAttribute("id", "btn")
       newDiv.style.width = "20px"
       newDiv.style.height = "20px"
       newDiv.style.backgroundColor = "black"
       newDiv.style.position="absolute"
-      let x = Math.floor(Math.random() * 1500)
-      let y = Math.floor(Math.random() * 1000)
+      let x = Math.floor(Math.random() * 900)
+      let y = Math.floor(Math.random() * 900)
       let xString = x.toString()
       let ySting = y.toString()
       newDiv.style.left = xString+"px"
       newDiv.style.top = ySting+"px"
-      root.appendChild(newDiv)
+      board.appendChild(newDiv)
       newDiv.addEventListener("click",function(eventTarget){
-      
-      console.log(eventTarget)
       newDiv.remove()
     })
-    },1000)
+    },3000)
+
+    })
+    
 
     // let xString = x.toString()
     //   let ySting = y.toString()
