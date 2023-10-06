@@ -10,18 +10,59 @@
       }
     #root {
       width: 100vw;
-      background-color: bisque;
-      height: 100vh
+      display: flex;
+      height: 100vh;
+      flex-wrap:wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
+    #root>div:nth-child(1){
+      background-color: bisque;
+      width:60vw;
+      height:95vh;
+    }
+    #root>div:nth-child(2){
+      background-color:#F9F9F9;
+      width:15vw;
+      height:10vh;
+    }
+    #root>div:nth-child(3){
+      background-color: #F9F9F9;
+      width:15vw;
+      height:10vh;
+      margin-top:30px;
+    }
+    #root>div:nth-child(4){
+      background-color: #F9F9F9;
+      width:15vw;
+      height:10vh;
+      margin-top:30px;
+    }
+    #root>button{
+      background-color: #FF6666;
+      width:15vw;
+      height:15vw;
+      margin-top:20px;
+      border-radius: 30px;
+    }
+    
+    
+    
   </style>
 </head>
 <body>
   <div id="root">
+    <div id="board"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <button>play!</button>
   </div>
   <script>
     
     const root = document.getElementById('root');
-    
+    const board = document.getElementById('board');
     // const newDiv = document.createElement('div')
     // newDiv.style.width = "20px"
     //   newDiv.style.height = "20px"
@@ -37,8 +78,8 @@
       newDiv.style.height = "20px"
       newDiv.style.backgroundColor = "black"
       newDiv.style.position="absolute"
-      let x = Math.floor(Math.random() * 500)
-      let y = Math.floor(Math.random() * 500)
+      let x = Math.floor(Math.random() * 1500)
+      let y = Math.floor(Math.random() * 1000)
       let xString = x.toString()
       let ySting = y.toString()
       newDiv.style.left = xString+"px"
