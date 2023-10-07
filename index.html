@@ -27,6 +27,11 @@
       background-color:#F9F9F9;
       width:15vw;
       height:10vh;
+      display:flex;
+      text-align: center;
+      font-size: 1.5vw;
+      justify-content: center;
+      align-items: center;
     }
     #root>div:nth-child(3){
       background-color: #F9F9F9;
@@ -67,7 +72,7 @@
 <body>
   <div id="root">
     <div id="board"></div>
-    <div>하이스코어:</div>
+    <div>하이스코어:<span id="high">0</span></div>
     <div>시간:<span id="log">0</span></div>
     <div>스코어:<span id=value>0</span></div>
     <button id="play">play!</button>
@@ -79,6 +84,8 @@
     const play= document.getElementById('play');
     let value = document.getElementById("value");
     let log =document.getElementById("log");
+    const high = document.getElementById("high")
+    let highscore = parseInt(high.textContent)
     console.dir(root);
     
 
@@ -123,7 +130,7 @@
       
       
       
-      if(sec>10){
+      if(sec>9){
         clearInterval(interval)
         clearInterval(time)
         while ( board.hasChildNodes() )
@@ -131,9 +138,14 @@
         board.removeChild( board.firstChild );       
         }
         console.log(value.textContent)
-        count = 0
+        if(highscore<parseInt(value.textContent)){
+          high.textContent=parseInt(value.textContent)
+        }
         // alert("끝!!!!")
         // re()
+        count = 0
+        log.innerHTML = 0
+        value.textContent = 0
       }
 
     },1000)
