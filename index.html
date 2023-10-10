@@ -95,17 +95,17 @@
       let interval = setInterval(function(){
       const newDiv = document.createElement('button')
       newDiv.setAttribute("id", "btn")
-      newDiv.style.width = "40px"
-      newDiv.style.height = "40px"
-      newDiv.style.backgroundColor = "pink"
+      newDiv.style.width = "2vw"
+      newDiv.style.height = "2vw"
+      newDiv.style.backgroundColor = "red"
       newDiv.style.borderRadius = "20px"
       newDiv.style.position="absolute"
-      let x = Math.floor(Math.random() * 880)
-      let y = Math.floor(Math.random() * 900)
+      let x = Math.floor(Math.random()* 58) 
+      let y = Math.floor(Math.random()* 93) 
       let xString = x.toString()
       let ySting = y.toString()
-      newDiv.style.left = xString+"px"
-      newDiv.style.top = ySting+"px"
+      newDiv.style.left = xString+"vw"
+      newDiv.style.top = ySting+"vh"
       board.appendChild(newDiv)
 
 
